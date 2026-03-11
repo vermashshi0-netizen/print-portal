@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Print Portal</title>
+<style>
+body{
+font-family: Arial;
+text-align:center;
+background:#f2f2f2;
+}
+.box{
+background:white;
+padding:20px;
+margin:50px auto;
+width:300px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
+button{
+padding:10px 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box" id="login">
+<h2>Admin Login</h2>
+
+<input type="text" id="user" placeholder="Admin ID"><br><br>
+<input type="password" id="pass" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+</div>
+
+<div class="box" id="portal" style="display:none;">
+<h2>Print Portal</h2>
+
+<select id="service">
+<option value="32">Aadhar to PAN - ₹32</option>
+<option value="40">PAN to Aadhar - ₹40</option>
+</select>
+
+<br><br>
+
+<button onclick="showPrice()">Check Price</button>
+
+<p id="price"></p>
+
+<button onclick="window.print()">Print</button>
+
+</div>
+
+<script>
+
+function login(){
+
+var u=document.getElementById("user").value;
+var p=document.getElementById("pass").value;
+
+if(u=="admin" && p=="12345"){
+document.getElementById("login").style.display="none";
+document.getElementById("portal").style.display="block";
+}else{
+alert("Wrong ID Password");
+}
+
+}
+
+function showPrice(){
+
+var price=document.getElementById("service").value;
+
+document.getElementById("price").innerHTML="Service Price ₹"+price;
+
+}
+
+</script>
+
+</body>
+</html>
